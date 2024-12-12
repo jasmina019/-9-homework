@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,17 +6,13 @@
     <title>Movies</title>
 </head>
 <body>
-    <h1>Movies List</h1>
-    <button><a href="{% url 'home' %}">Back to home</a></button>
-    <button><a href="{% url 'movies:create' %}">Create Movie</a></button>
-
-    <ul>
-        {% for movie in movies %}
-            <h3>{{ movie.title }}</h3>
-        {% empty %}
-            <h3> no movies</h3>
-        {% endfor %}
-
-    </ul>
+    <h1>Movie List</h1>
+    <button><a href="{% url 'home' %}">Back to Home</a></button>
+    <button><a href="{% url 'movies:movie_create' %}">Create Movie</a></button>
+    {% for movie in movies %}
+        <a href="{{ movie.get_detail_url }}"><h3>{{ movie.title }}</h3></a>
+    {% empty %}
+        <h3>There are no movies yet</h3>
+    {% endfor %}
 </body>
 </html>

@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sports</title>
+</head>
+<body>
+    <h1>Sport List</h1>
+    <button><a href="{% url 'home' %}">Back to Home</a></button>
+    <button><a href="{% url 'sports:sport_create' %}">Create Sport</a></button>
+    {% for movie in movies %}
+        <a href="{{ sport.get_detail_url }}"><h3>{{ sport.title }}</h3></a>
+    {% empty %}
+        <h3>There are no sport yet</h3>
+    {% endfor %}
+</body>
+</html>
